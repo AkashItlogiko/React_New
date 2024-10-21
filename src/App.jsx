@@ -1,10 +1,5 @@
-import Demo from './Demo';
 const App = () => {
-  return (
-    <div>
-      <Demo />
-    </div>
-  );
+  return <div></div>;
 };
 
 export default App;
