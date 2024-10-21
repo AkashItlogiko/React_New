@@ -1,8 +1,15 @@
 const App = () => {
-  const status = false;
+  const status = true;
   return (
     <div>
-      {status ? <button>Logout Btn</button> : <button>Login Btn</button>}
+      <h1>Login Status</h1>
+      {(() => {
+        if (status == true) {
+          return <button>Logout Btn</button>;
+        } else {
+          return <button>Login Btn</button>;
+        }
+      })()}
     </div>
   );
 };
