@@ -1,15 +1,12 @@
+import { useRef } from 'react';
+
 const App = () => {
-  const status = true;
+  let myHeadLine = useRef();
+  myHeadLine.current.innerText = 'Joy Bamngla';
+
   return (
     <div>
-      <h1>Login Status</h1>
-      {(() => {
-        if (status == true) {
-          return <button>Logout Btn</button>;
-        } else {
-          return <button>Login Btn</button>;
-        }
-      })()}
+      <h1 ref={myHeadLine}></h1>
     </div>
   );
 };
