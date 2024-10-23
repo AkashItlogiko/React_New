@@ -1,12 +1,16 @@
 import { useRef } from 'react';
 
 const App = () => {
-  let myHeadLine = useRef();
-  myHeadLine.current.innerText = 'Joy Bamngla';
+  let number = useRef(0);
+
+  const change = () => {
+    number.current++;
+    console.log(number.current);
+  };
 
   return (
     <div>
-      <h1 ref={myHeadLine}></h1>
+      <button onClick={change}>Click</button>
     </div>
   );
 };
