@@ -1,16 +1,13 @@
-import { useRef } from 'react';
+import { useState } from 'react';
 
 const App = () => {
-  let number = useRef(0);
-
-  const change = () => {
-    number.current++;
-    console.log(number.current);
-  };
+  const [list, setList] = useState([]);
+  const [item, setItem] = useState([]);
 
   return (
     <div>
-      <button onClick={change}>Click</button>
+      <input placeholder="Item" />
+      <button>Add</button>
     </div>
   );
 };
