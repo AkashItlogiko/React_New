@@ -1,48 +1,17 @@
-import { useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
 
 const App = () => {
-  const [list, setList] = useState([]);
-  const [item, setItem] = useState(['']);
-
-  const AddToList = () => {
-    list.push(item);
-    setList([...list]);
-  };
-
-  const RemoveItem = index => {
-    list.splice(index, 1);
-    setList([...list]);
-  };
-
   return (
     <div>
-      <table>
-        <tbody>
-          {list.length != 0 ? (
-            list.map((element, index) => {
-              return (
-                <tr>
-                  <td>{element}</td>
-                  <td>
-                    <button
-                      onClick={() => {
-                        RemoveItem(index);
-                      }}
-                    >
-                      Remove
-                    </button>
-                  </td>
-                </tr>
-              );
-            })
-          ) : (
-            <tr></tr>
-          )}
-        </tbody>
-      </table>
-
-      <input onChange={e => setItem(e.target.value)} placeholder="Item" />
-      <button onClick={AddToList}>Add</button>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/product" element={<ProductPage />}></Route>
+          <Route path="/profile" element={<ProfilePage />}></Route>
+          <Route path="/*" element={<NotFound />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 };
