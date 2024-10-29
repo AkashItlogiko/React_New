@@ -1,17 +1,24 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom';
+
 import HomePage from './pages/HomePage';
+import NotFound from './pages/NotFound';
+import ProductPage from './pages/ProductPage';
+import ProfilePage from './pages/ProfilePage';
 
 const App = () => {
   return (
     <div>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
-          <Route path="/" element={<HomePage />}></Route>
-          <Route path="/product" element={<ProductPage />}></Route>
-          <Route path="/profile" element={<ProfilePage />}></Route>
-          <Route path="/*" element={<NotFound />}></Route>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/product/:id/:name" element={<ProductPage />} />
+          <Route
+            path="/profile/:facebookID/:YouTubeID"
+            element={<ProfilePage />}
+          />
+          <Route path="*" element={<NotFound />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 };
